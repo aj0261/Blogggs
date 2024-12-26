@@ -3,6 +3,11 @@ import { Appbar } from "./Appbar"
 import { Avatar } from "./BlogCard"
 
 export const FullBlog = ({ blog }: { blog: Blog }) => {
+    const formattedDate = new Date(blog.publishedAt).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    });
     return <div>
         <Appbar />
         <div className="flex justify-center">
@@ -12,7 +17,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
                         {blog.title}
                     </div>
                     <div className="text-slate-500 pt-2">
-                        Posted on 2nd December 2003
+                        Posted at {formattedDate}
                     </div>
                     <div className="pt-4">
                         {blog.content}

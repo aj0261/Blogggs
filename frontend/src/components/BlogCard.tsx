@@ -14,6 +14,11 @@ export const BlogCard = ({
     content,
     publishedDate
 }:BlogCardProps) =>{
+    const formattedDate = new Date(publishedDate).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    });
     return(
         <Link to={`/blog/${id}`}>
         <div className="p-4 border-b border-slate-400 pb-4 w-screen max-w-screen-md">
@@ -26,7 +31,7 @@ export const BlogCard = ({
                     <Circle/>
                 </div>
                 <div className="pl-2 flex justify-center flex-col font-thin text-slate-500 text-sm">
-                    {publishedDate}
+                    {formattedDate}
                 </div>
             </div> 
             <div className = "text-xl font-semibold pt-2">
