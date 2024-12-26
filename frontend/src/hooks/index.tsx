@@ -5,6 +5,7 @@ export interface Blog{
     "content" :string;
     "title" :string;
     "id" : string;
+    "publishedAt" : string,
     "author":{
         "name" :string;
     }

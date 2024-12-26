@@ -31,7 +31,7 @@ export const Blogs = () => {
                         authorName={blog.author.name || "Anonymous"}
                         title={blog.title}
                         content={blog.content}
-                        publishedDate={"2nd feb 2024"}
+                        publishedDate={blog.publishedAt}
                     />)}
                     <BlogCard
                         id="xxxxxxx"
