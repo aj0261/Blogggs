@@ -13,7 +13,7 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
     });
 
     async function sendRequest(event: React.FormEvent) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
         try {
             const response = await axios.post(
                 `${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`,

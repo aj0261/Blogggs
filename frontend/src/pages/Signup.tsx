@@ -1,4 +1,4 @@
-import { Quote } from "../components/Quote";
+import YourImage from "../assets/images/Your paragraph text.png";
 import { Auth } from "../components/Auth";
 export const Signup = () => {
   return (
@@ -7,7 +7,11 @@ export const Signup = () => {
         <Auth type="signup"/>
       </div>
       <div className="hidden lg:block">
-        <Quote/>
+      <img 
+          src={YourImage} 
+          alt="Your Paragraph Text" 
+          className="w-full h-auto object-cover" 
+        />
       </div>
     </div>
   );
