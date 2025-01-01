@@ -1,12 +1,16 @@
 import { Blog } from "../hooks"
 import { Appbar } from "./Appbar"
 import { Avatar } from "./BlogCard"
-
+import DOMPurify from "dompurify";
 export const FullBlog = ({ blog }: { blog: Blog }) => {
     const formattedDate = new Date(blog.publishedAt).toLocaleDateString('en-GB', {
         day: '2-digit',
         month: 'short',
         year: 'numeric',
+    });
+    const sanitizedContent = DOMPurify.sanitize(blog?.content || "", {
+        ADD_TAGS: ["iframe"],
+        ADD_ATTR: ["allowfullscreen", "frameborder", "scrolling", "allow"],
     });
     return <div>
         <Appbar />
@@ -18,10 +22,8 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
                     </div>
                     <div className="text-slate-500 pt-2">
                         Posted on  {formattedDate}
-                    </div>
-                    <div className="pt-4">
-                        {blog.content}
-                    </div>
+                    </div >
+                    <div className="pt-4 blog-content prose" dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
                 </div>
                 <div className="col-span-4">
                     <div className="text-slate-600 text-lg">

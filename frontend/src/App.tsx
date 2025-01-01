@@ -4,6 +4,8 @@ import { Signin } from './pages/Signin';
 import { Blog } from './pages/Blog';
 import { Blogs } from './pages/Blogs'; 
 import { Publish } from './pages/Publish';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'froala-editor/css/froala_style.min.css';
 function App() {
   return (
     <>
