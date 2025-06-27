@@ -13,12 +13,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Vote {
+  id        String   @id @default(uuid())
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  type      String   
+
+  @@unique([postId, userId])
+}
 model User {
   id       String @id @default(uuid())
   email    String @unique
   name     String?
+  bio      String?   
   password String
   posts    Post[]
+  votes    Vote[] 
+  comments Comment[] 
 }
 
 model Post {
@@ -29,4 +42,18 @@ model Post {
   publishedAt DateTime? 
   author      User     @relation(fields: [authorId], references: [id])
   authorId    String
+  votes       Vote[]
+  comments    Comment[] 
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    String
+  
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
 }
