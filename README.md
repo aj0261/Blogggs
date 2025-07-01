@@ -3,7 +3,7 @@
 
 **Blogggs** is a full-stack, serverless social blogging platform designed for writers, thinkers, and creators. It provides a modern, intuitive interface for writing and sharing stories, coupled with powerful AI tools to assist in the creative process. The application is built with a high-performance serverless backend on Cloudflare Workers and a responsive React frontend.
 
-**Live Demo:** [**blogggs.yourdomain.com**](https://blogggs-psi.vercel.app/) <!-- Replace with your live deployment URL -->
+**Live Demo:** [**blogggs**](https://blogggs-psi.vercel.app/) <!-- Replace with your live deployment URL -->
 
 ---
 
